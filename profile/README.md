@@ -11,6 +11,7 @@
 2026.09.21 ~ 2026.11.03
 
 [![발표 영상](https://img.shields.io/badge/발표_영상-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/3HMGT7gajqM)
+[![Notion](https://img.shields.io/badge/기획_%26_설계_문서-000000?style=for-the-badge&logo=notion&logoColor=white)](https://grass-traffic-f45.notion.site/JARVISEO-3ddfad91ec9b80c0b947d122d1252dcf)
 [![실험 기록](https://img.shields.io/badge/실험_기록-000000?style=for-the-badge&logo=readthedocs&logoColor=white)](https://github.com/Mook-Industries/JARVISEO/blob/main/docs/experiments.md)
 [![Repo](https://img.shields.io/badge/JARVISEO-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Mook-Industries/JARVISEO)
 
