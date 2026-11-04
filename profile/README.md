@@ -8,7 +8,7 @@
 
 **당신의 시야에 AI 를 더하다 — 웨어러블 AI 안경 비서**
 
-2026.09.21 ~ 2026.11.03
+2026.09.14 ~ 2026.11.03
 
 [![발표 영상](https://img.shields.io/badge/발표_영상-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/3HMGT7gajqM)
 [![Notion](https://img.shields.io/badge/기획_%26_설계_문서-000000?style=for-the-badge&logo=notion&logoColor=white)](https://grass-traffic-f45.notion.site/JARVISEO-3ddfad91ec9b80c0b947d122d1252dcf)
@@ -42,7 +42,7 @@
 <td width="50%" valign="top">
 
 ### 🗣️ 호출어 "자비서"
-저희 목소리로 **직접 학습한** 호출어 모델이 항상 듣고 있습니다.
+저희 목소리로 **직접 학습한** 호출어 모델이 항상 듣고 있습니다. **항상 듣는 일은 사용자 기기 안(노트북 · 브라우저)에서만** 합니다.
 깨어나면 받아쓰기로 한 번 더 확인해서 TV 소리에 잘못 깨지 않습니다.
 
 ### 👉 "이거 뭐야?"
@@ -116,6 +116,9 @@ flowchart LR
 임계값을 올리면 잘못 깨는 횟수는 줄지만 소음 속에서 40% 를 놓칩니다.
 그래서 임계값 대신 **깨어난 직전 1.6초를 받아써 한 번 더 확인**했습니다.
 유튜브 30분에 3번 잘못 깨던 것이 **약 2시간 동안 0번**이 됐습니다.
+
+같은 모델을 **노트북(파이썬)과 브라우저(onnxruntime-web)** 에서 돌립니다. 같은 녹음을 넣었을 때 두 쪽 점수 차이는 최대 0.000011 입니다.
+**평소 소리는 기기 밖으로 나가지 않고**, 호출된 뒤에만 직전 4초와 그 턴의 소리가 서버로 갑니다.
 
 <br>
 
@@ -208,6 +211,7 @@ flowchart LR
 **AI**
 
 ![openWakeWord](https://img.shields.io/badge/openWakeWord_직접_학습-FF6F00?style=flat-square)
+![onnxruntime-web](https://img.shields.io/badge/onnxruntime--web_브라우저_호출어-005CED?style=flat-square&logo=onnx&logoColor=white)
 ![OpenAI](https://img.shields.io/badge/OpenAI_VLM_·_STT_·_TTS-412991?style=flat-square&logo=openai&logoColor=white)
 ![YOLOv8n](https://img.shields.io/badge/YOLOv8n_파인튜닝-111F68?style=flat-square)
 ![MediaPipe](https://img.shields.io/badge/MediaPipe_손_관절-0097A7?style=flat-square&logo=google&logoColor=white)
@@ -235,7 +239,7 @@ flowchart LR
   <img src="https://raw.githubusercontent.com/Mook-Industries/.github/main/profile/architecture.png" alt="JARVISEO 시스템 구조" width="100%">
 </div>
 
-안경의 USB 카메라 · 마이크 입력을 **공통 런타임** 하나가 받습니다. 같은 Python 코드가 노트북(로컬)에서도, 웹 서버에서도 돕니다.
+안경의 USB 카메라 · 마이크 입력을 **공통 런타임** 하나가 받습니다. 노트북에서는 노트북이 전부 하고, 팀 웹에서는 **브라우저가 호출어만 듣고** 나머지는 팀 서버(AWS EC2)가 같은 Python 코드로 합니다.
 LangGraph 가 질문을 **대상 특정 · 성분 분석 · 기억 검색 · 일반 질문**으로 나눠 보내고,
 성분 판정은 VLM 을 거치지 않고 바로 응답으로 나갑니다.
 
